@@ -10,32 +10,39 @@ namespace Loja
 {
     public partial class F_TelaInicial : Form
     {
-
-		public F_TelaInicial(string nomeParametro)
+        string salvarParametro;
+        public F_TelaInicial(string nomeParametro)
         {
             InitializeComponent();
             lblNome.Text = nomeParametro;
+            salvarParametro = nomeParametro;
         }
 
         private void btnCadUsuario_Click(object sender, EventArgs e)
         {
-            F_TelaCadUsuario f = new F_TelaCadUsuario();
+            F_TelaCadUsuario f = new F_TelaCadUsuario(salvarParametro);
             this.Hide();
             f.Show();
         }
 
         private void btnCadProdutos_Click(object sender, EventArgs e)
         {
-            
-            F_TelaCadProduto f = new F_TelaCadProduto();
+
+            F_TelaCadProduto f = new F_TelaCadProduto(salvarParametro);
             this.Hide();
             f.Show();
         }
 
         private void btnMovimentacao_Click(object sender, EventArgs e)
         {
-			string nomeParametro = lblNome.Text;
-			F_TelaMovimentacao f = new F_TelaMovimentacao(nomeParametro);
+            F_TelaMovimentacao f = new F_TelaMovimentacao(salvarParametro);
+            this.Hide();
+            f.Show();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            F_TelaLogin f = new F_TelaLogin();
             this.Hide();
             f.Show();
         }

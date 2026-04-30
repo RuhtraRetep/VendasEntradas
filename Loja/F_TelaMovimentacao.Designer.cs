@@ -29,24 +29,27 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
-            txtId = new TextBox();
-            txtQuantidade = new TextBox();
-            label2 = new Label();
-            dataGridView1 = new DataGridView();
-            panel2 = new Panel();
-            cmbTipo = new ComboBox();
-            comboBox2 = new ComboBox();
+            btnLogout = new Button();
             btnCadMovimentacao = new Button();
+            cmbTipo = new ComboBox();
+            label2 = new Label();
+            txtQuantidade = new TextBox();
+            txtId = new TextBox();
+            label1 = new Label();
+            dgvMovimentacao = new DataGridView();
+            panel2 = new Panel();
+            label3 = new Label();
             btnFiltrar = new Button();
+            cmbFiltrar = new ComboBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMovimentacao).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlDark;
+            panel1.BackColor = Color.Gold;
+            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnCadMovimentacao);
             panel1.Controls.Add(cmbTipo);
             panel1.Controls.Add(label2);
@@ -54,36 +57,44 @@
             panel1.Controls.Add(txtId);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
+            panel1.ForeColor = Color.Black;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(846, 180);
             panel1.TabIndex = 0;
             // 
-            // label1
+            // btnLogout
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(24, 86);
-            label1.Name = "label1";
-            label1.Size = new Size(170, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Nova movimentação";
+            btnLogout.Font = new Font("Segoe UI", 11F);
+            btnLogout.Location = new Point(684, 39);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(91, 27);
+            btnLogout.TabIndex = 0;
+            btnLogout.Text = "Voltar";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
-            // txtId
+            // btnCadMovimentacao
             // 
-            txtId.Location = new Point(24, 138);
-            txtId.Name = "txtId";
-            txtId.PlaceholderText = "Id do Produto";
-            txtId.Size = new Size(100, 23);
-            txtId.TabIndex = 1;
+            btnCadMovimentacao.Font = new Font("Segoe UI", 11F);
+            btnCadMovimentacao.Location = new Point(743, 139);
+            btnCadMovimentacao.Name = "btnCadMovimentacao";
+            btnCadMovimentacao.Size = new Size(91, 27);
+            btnCadMovimentacao.TabIndex = 3;
+            btnCadMovimentacao.Text = "Registrar";
+            btnCadMovimentacao.UseVisualStyleBackColor = true;
+            btnCadMovimentacao.Click += btnCadMovimentacao_Click;
             // 
-            // txtQuantidade
+            // cmbTipo
             // 
-            txtQuantidade.Location = new Point(500, 138);
-            txtQuantidade.Name = "txtQuantidade";
-            txtQuantidade.PlaceholderText = "Quantidade";
-            txtQuantidade.Size = new Size(151, 23);
-            txtQuantidade.TabIndex = 3;
+            cmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipo.Font = new Font("Segoe UI", 11F);
+            cmbTipo.FormattingEnabled = true;
+            cmbTipo.Items.AddRange(new object[] { "", "Entrada", "Saída" });
+            cmbTipo.Location = new Point(266, 138);
+            cmbTipo.Name = "cmbTipo";
+            cmbTipo.Size = new Size(121, 28);
+            cmbTipo.TabIndex = 5;
             // 
             // label2
             // 
@@ -95,61 +106,86 @@
             label2.TabIndex = 4;
             label2.Text = "Movimentações";
             // 
-            // dataGridView1
+            // txtQuantidade
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Bottom;
-            dataGridView1.Location = new Point(0, 378);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(846, 150);
-            dataGridView1.TabIndex = 1;
+            txtQuantidade.Font = new Font("Segoe UI", 11F);
+            txtQuantidade.Location = new Point(500, 138);
+            txtQuantidade.Name = "txtQuantidade";
+            txtQuantidade.PlaceholderText = "Quantidade";
+            txtQuantidade.Size = new Size(151, 27);
+            txtQuantidade.TabIndex = 2;
+            // 
+            // txtId
+            // 
+            txtId.Font = new Font("Segoe UI", 11F);
+            txtId.Location = new Point(24, 138);
+            txtId.Name = "txtId";
+            txtId.PlaceholderText = "Id do Produto";
+            txtId.Size = new Size(100, 27);
+            txtId.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(24, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(170, 21);
+            label1.TabIndex = 0;
+            label1.Text = "Nova movimentação";
+            // 
+            // dgvMovimentacao
+            // 
+            dgvMovimentacao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMovimentacao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMovimentacao.Dock = DockStyle.Bottom;
+            dgvMovimentacao.Location = new Point(0, 378);
+            dgvMovimentacao.Name = "dgvMovimentacao";
+            dgvMovimentacao.Size = new Size(846, 150);
+            dgvMovimentacao.TabIndex = 1;
             // 
             // panel2
             // 
-            panel2.BackColor = SystemColors.ControlDark;
+            panel2.BackColor = Color.Gold;
+            panel2.Controls.Add(label3);
             panel2.Controls.Add(btnFiltrar);
-            panel2.Controls.Add(comboBox2);
+            panel2.Controls.Add(cmbFiltrar);
             panel2.Location = new Point(0, 238);
             panel2.Name = "panel2";
             panel2.Size = new Size(846, 100);
             panel2.TabIndex = 2;
             // 
-            // cmbTipo
+            // label3
             // 
-            cmbTipo.FormattingEnabled = true;
-            cmbTipo.Items.AddRange(new object[] { "", "Entrada", "Saída" });
-            cmbTipo.Location = new Point(266, 138);
-            cmbTipo.Name = "cmbTipo";
-            cmbTipo.Size = new Size(121, 23);
-            cmbTipo.TabIndex = 5;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Todas", "Entrada", "Saída" });
-            comboBox2.Location = new Point(24, 55);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 0;
-            // 
-            // btnCadMovimentacao
-            // 
-            btnCadMovimentacao.Location = new Point(757, 143);
-            btnCadMovimentacao.Name = "btnCadMovimentacao";
-            btnCadMovimentacao.Size = new Size(75, 23);
-            btnCadMovimentacao.TabIndex = 6;
-            btnCadMovimentacao.Text = "Cadastrar";
-            btnCadMovimentacao.UseVisualStyleBackColor = true;
-            btnCadMovimentacao.Click += btnCadMovimentacao_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(24, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(211, 21);
+            label3.TabIndex = 8;
+            label3.Text = "Visualizar Movimentações";
             // 
             // btnFiltrar
             // 
-            btnFiltrar.Location = new Point(302, 59);
+            btnFiltrar.Font = new Font("Segoe UI", 11F);
+            btnFiltrar.Location = new Point(302, 55);
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(75, 23);
-            btnFiltrar.TabIndex = 1;
+            btnFiltrar.Size = new Size(75, 28);
+            btnFiltrar.TabIndex = 4;
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // cmbFiltrar
+            // 
+            cmbFiltrar.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltrar.Font = new Font("Segoe UI", 11F);
+            cmbFiltrar.FormattingEnabled = true;
+            cmbFiltrar.Items.AddRange(new object[] { "Todas", "Entrada", "Saída" });
+            cmbFiltrar.Location = new Point(24, 55);
+            cmbFiltrar.Name = "cmbFiltrar";
+            cmbFiltrar.Size = new Size(121, 28);
+            cmbFiltrar.TabIndex = 0;
             // 
             // F_TelaMovimentacao
             // 
@@ -157,14 +193,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(846, 528);
             Controls.Add(panel2);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvMovimentacao);
             Controls.Add(panel1);
             Name = "F_TelaMovimentacao";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "F_TelaMovimentacao";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMovimentacao).EndInit();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -177,9 +215,11 @@
         private Button btnCadMovimentacao;
         private ComboBox cmbTipo;
         private Label label2;
-        private DataGridView dataGridView1;
+        private DataGridView dgvMovimentacao;
         private Panel panel2;
         private Button btnFiltrar;
-        private ComboBox comboBox2;
+        private ComboBox cmbFiltrar;
+        private Button btnLogout;
+        private Label label3;
     }
 }

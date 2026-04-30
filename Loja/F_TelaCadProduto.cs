@@ -12,9 +12,10 @@ namespace Loja
     public partial class F_TelaCadProduto : Form
     {
         string conexao = "Server=localhost;Database=loja;User=root;Password=;";
-        public F_TelaCadProduto()
+        string salvarParametro;
+        public F_TelaCadProduto(string nomeParametro)
         {
-
+            salvarParametro = nomeParametro;
             InitializeComponent();
         }
 
@@ -58,12 +59,24 @@ namespace Loja
         }
         private void btnCad_Click(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(txtQuantidadeAtual.Text) < Convert.ToInt32(txtQuantidadeMinima.Text))
+            {
+                MessageBox.Show("A quantidade atual não pode ser menor que a quantidade mínima");
+                return;
+            }
             Cadastrar();
         }
 
-        private void F_TelaCadProduto_Load(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-            
+            F_TelaInicial f = new F_TelaInicial(salvarParametro);
+            this.Hide();
+            f.Show();
+        }
+
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            AtualizarDGV();
         }
     }
 }

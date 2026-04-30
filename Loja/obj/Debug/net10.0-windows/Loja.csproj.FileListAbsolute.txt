@@ -32,3 +32,4 @@ D:\DDS3\DDS3\Pedro\loja\Loja\Loja\obj\Debug\net10.0-windows\Loja.F_TelaCadProdut
 D:\DDS3\DDS3\Pedro\loja\Loja\Loja\obj\Debug\net10.0-windows\Loja.F_TelaInicial.resources
 D:\DDS3\DDS3\Pedro\loja\Loja\Loja\obj\Debug\net10.0-windows\Loja.F_TelaMovimentacao.resources
 D:\DDS3\DDS3\Pedro\loja\Loja\Loja\obj\Debug\net10.0-windows\Loja.csproj.Up2Date
+D:\DDS3\DDS3\Pedro\loja\Loja\Loja\obj\Debug\net10.0-windows\Loja.sourcelink.json

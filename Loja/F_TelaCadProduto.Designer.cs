@@ -33,38 +33,43 @@
             txtQuantidadeMinima = new TextBox();
             label1 = new Label();
             panel1 = new Panel();
+            btnLogout = new Button();
             btnCad = new Button();
             dgvProdutos = new DataGridView();
             Id = new DataGridViewTextBoxColumn();
             nome = new DataGridViewTextBoxColumn();
             qtdAtual = new DataGridViewTextBoxColumn();
             qtdMinima = new DataGridViewTextBoxColumn();
+            btnVisualizar = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             SuspendLayout();
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(63, 103);
+            txtNome.Font = new Font("Segoe UI", 11F);
+            txtNome.Location = new Point(12, 106);
             txtNome.Name = "txtNome";
             txtNome.PlaceholderText = "Nome do Produto";
-            txtNome.Size = new Size(217, 23);
+            txtNome.Size = new Size(223, 27);
             txtNome.TabIndex = 0;
             // 
             // txtQuantidadeAtual
             // 
-            txtQuantidadeAtual.Location = new Point(351, 103);
+            txtQuantidadeAtual.Font = new Font("Segoe UI", 11F);
+            txtQuantidadeAtual.Location = new Point(300, 106);
             txtQuantidadeAtual.Name = "txtQuantidadeAtual";
             txtQuantidadeAtual.PlaceholderText = "Quantidade ";
-            txtQuantidadeAtual.Size = new Size(137, 23);
+            txtQuantidadeAtual.Size = new Size(143, 27);
             txtQuantidadeAtual.TabIndex = 1;
             // 
             // txtQuantidadeMinima
             // 
-            txtQuantidadeMinima.Location = new Point(558, 103);
+            txtQuantidadeMinima.Font = new Font("Segoe UI", 11F);
+            txtQuantidadeMinima.Location = new Point(507, 106);
             txtQuantidadeMinima.Name = "txtQuantidadeMinima";
             txtQuantidadeMinima.PlaceholderText = "Quantidade mínima";
-            txtQuantidadeMinima.Size = new Size(137, 23);
+            txtQuantidadeMinima.Size = new Size(143, 27);
             txtQuantidadeMinima.TabIndex = 2;
             // 
             // label1
@@ -79,6 +84,9 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Gold;
+            panel1.Controls.Add(btnVisualizar);
+            panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnCad);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtNome);
@@ -87,14 +95,26 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 173);
+            panel1.Size = new Size(800, 200);
             panel1.TabIndex = 4;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Font = new Font("Segoe UI", 11F);
+            btnLogout.Location = new Point(705, 15);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(82, 29);
+            btnLogout.TabIndex = 5;
+            btnLogout.Text = "Voltar";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnCad
             // 
-            btnCad.Location = new Point(706, 144);
+            btnCad.Font = new Font("Segoe UI", 11F);
+            btnCad.Location = new Point(705, 106);
             btnCad.Name = "btnCad";
-            btnCad.Size = new Size(75, 23);
+            btnCad.Size = new Size(82, 29);
             btnCad.TabIndex = 4;
             btnCad.Text = "Cadastrar";
             btnCad.UseVisualStyleBackColor = true;
@@ -142,6 +162,17 @@
             qtdMinima.Name = "qtdMinima";
             qtdMinima.ReadOnly = true;
             // 
+            // btnVisualizar
+            // 
+            btnVisualizar.Font = new Font("Segoe UI", 11F);
+            btnVisualizar.Location = new Point(705, 159);
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Size = new Size(82, 28);
+            btnVisualizar.TabIndex = 6;
+            btnVisualizar.Text = "Visualizar";
+            btnVisualizar.UseVisualStyleBackColor = true;
+            btnVisualizar.Click += btnVisualizar_Click;
+            // 
             // F_TelaCadProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -150,8 +181,8 @@
             Controls.Add(dgvProdutos);
             Controls.Add(panel1);
             Name = "F_TelaCadProduto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "F_TelaCadProduto";
-            Load += F_TelaCadProduto_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).EndInit();
@@ -171,5 +202,7 @@
         private DataGridViewTextBoxColumn nome;
         private DataGridViewTextBoxColumn qtdAtual;
         private DataGridViewTextBoxColumn qtdMinima;
+        private Button btnLogout;
+        private Button btnVisualizar;
     }
 }
